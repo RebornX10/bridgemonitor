@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bridgeMonitor", "bridgeMonitor\bridgeMonitor.csproj", "{82581FE9-E41D-41B0-97CD-5CAB6189F2DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82581FE9-E41D-41B0-97CD-5CAB6189F2DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82581FE9-E41D-41B0-97CD-5CAB6189F2DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82581FE9-E41D-41B0-97CD-5CAB6189F2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82581FE9-E41D-41B0-97CD-5CAB6189F2DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD8676C1-F5EC-4E42-8DCE-CB51265D2877}
+	EndGlobalSection
+EndGlobal

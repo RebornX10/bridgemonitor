@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using System.Globalization
+@model List<BridgeInfo>
+
+<div class="text-center">
+    <h1 class="display-4">Prochaine fermeture</h1>
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">Bateau</th>
+        <th scope="col">Type de fermeture</th>
+        <th scope="col">Durée de fermeture</th>
+        <th scope="col">Date de fermeture</th>
+        <th scope="col">Date de réouverture</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var info in Model)
+    {
+        var culture = new CultureInfo("fr-FR");
+        <tr>
+            <td></td>
+            <td>@info.BoatName</td>
+            <td>@info.ClosingType</td>
+            <td>@info.ReopeningDate.Subtract(@info.ClosingDate)</td>
+            <td>@info.ClosingDate.ToString("dddd d MMMM, hh:mm", culture)</td>
+            <td>@info.ReopeningDate.ToString("dddd d MMMM, hh:mm", culture)</td>
+        </tr>
+    }
+    </tbody>
+</table>
