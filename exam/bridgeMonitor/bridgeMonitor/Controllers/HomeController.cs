@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BridgeMonitor.Models;
@@ -26,9 +23,15 @@ namespace BridgeMonitor.Controllers
             return View(infos);
         }
 
+        public IActionResult AllClosing()
+        {
+            var infos = GetBridgeInfosFromApi();
+            return View(infos);
+        }
         public IActionResult Privacy()
         {
-            return View();
+            var infos = GetBridgeInfosFromApi();
+            return View(infos);
         }
 
         private static List<BridgeInfo> GetBridgeInfosFromApi()
@@ -48,4 +51,3 @@ namespace BridgeMonitor.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-}
