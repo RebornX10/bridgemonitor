@@ -8,7 +8,37 @@
 @{ Model.Sort((b1, b2) => DateTimeOffset.Compare(b1.ClosingDate, b2.ClosingDate)); }
 
 
+<div class="text-center">
+    <h1 class="display-4">Fermeture précédentes</h1>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col" class="text-center">Bateau/Maintenance</th>
+            <th scope="col" class="text-center">Type</th>
+            <th scope="col" class="text-center">Durée</th>
+            <th scope="col" class="text-center">Date</th>
+            <th scope="col" class="text-center">Heure</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var info in Model)
+        {
 
+            var culture = new CultureInfo("fr-FR");
+            if (@info.ClosingDate < DateTime.Now)
+            {
+        <tr>
+            <td class="text-center">@info.BoatName</td>
+            <td class="text-center">@info.ClosingType</td>
+            <td class="text-center">@info.ReopeningDate.Subtract(@info.ClosingDate)</td>
+            <td class="text-center">@info.ClosingDate.ToString("dddd d MMMM yyyy", culture)</td>
+            <td class="text-center">@info.ClosingDate.ToString("hh:mm", culture)</td>
+        </tr>
+            }
+        }
+    </tbody>
+</table>
 <div class="text-center">
     <h1 class="display-4">Fermeture futures</h1>
 </div>
@@ -28,46 +58,15 @@
             var culture = new CultureInfo("fr-FR");
             if (@info.ClosingDate >= DateTime.Now)
             {
-                <tr>
-                    <td class="text-center">@info.BoatName</td>
-                    <td class="text-center">@info.ClosingType</td>
-                    <td class="text-center">@info.ReopeningDate.Subtract(@info.ClosingDate)</td>
-                    <td class="text-center">@info.ClosingDate.ToString("dddd d MMMM yyyy", culture)</td>
-                    <td class="text-center">@info.ClosingDate.ToString("hh:mm", culture)</td>
-                </tr>
+        <tr>
+            <td class="text-center">@info.BoatName</td>
+            <td class="text-center">@info.ClosingType</td>
+            <td class="text-center">@info.ReopeningDate.Subtract(@info.ClosingDate)</td>
+            <td class="text-center">@info.ClosingDate.ToString("dddd d MMMM yyyy", culture)</td>
+            <td class="text-center">@info.ClosingDate.ToString("hh:mm", culture)</td>
+        </tr>
             }
         }
     </tbody>
 </table>
 
-<div class="text-center">
-    <h1 class="display-4">Fermeture précédentes</h1>
-</div>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col" class="text-center">Bateau</th>
-            <th scope="col" class="text-center">Type</th>
-            <th scope="col" class="text-center">Durée</th>
-            <th scope="col" class="text-center">Date</th>
-            <th scope="col" class="text-center">Heure</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var info in Model)
-        {
-
-            var culture = new CultureInfo("fr-FR");
-            if (@info.ClosingDate < DateTime.Now)
-            {
-                <tr>
-                    <td class="text-center">@info.BoatName</td>
-                    <td class="text-center">@info.ClosingType</td>
-                    <td class="text-center">@info.ReopeningDate.Subtract(@info.ClosingDate)</td>
-                    <td class="text-center">@info.ClosingDate.ToString("dddd d MMMM yyyy", culture)</td>
-                    <td class="text-center">@info.ClosingDate.ToString("hh:mm", culture)</td>
-                </tr>
-            }
-        }
-    </tbody>
-</table> 
