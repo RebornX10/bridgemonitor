@@ -7,6 +7,8 @@
 @model List<BridgeInfo>
 @{ Model.Sort((b1, b2) => DateTimeOffset.Compare(b1.ClosingDate, b2.ClosingDate)); }
 
+
+
 <div class="text-center">
     <h1 class="display-4">Fermeture futures</h1>
 </div>

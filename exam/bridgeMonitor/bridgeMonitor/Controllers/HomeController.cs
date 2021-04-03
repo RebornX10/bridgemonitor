@@ -23,7 +23,7 @@ namespace BridgeMonitor.Controllers
             return View(infos);
         }
 
-        public IActionResult AllClosing()
+        public IActionResult EveryCloture()
         {
             var infos = GetBridgeInfosFromApi();
             return View(infos);
